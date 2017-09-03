@@ -1,4 +1,7 @@
 class StringCalculator {
+  constructor() {
+    this._DEFAULT_DELIMITER = ",";
+  }
 
   add(numbers) {
     const separatedNumbers = this._separate(numbers);
@@ -8,9 +11,10 @@ class StringCalculator {
   }
 
   _separate(numberString) {
-    return numberString
-      .replace(/\n/g, ",")
-      .split(",");
+    const delimited = this._delimit(numberString);
+    return delimited
+      .replace(/\n/g, this._DEFAULT_DELIMITER)
+      .split(this._DEFAULT_DELIMITER);
   }
 
   _sum(integers) {
@@ -19,6 +23,15 @@ class StringCalculator {
 
   _parseIntegers(numberStrings) {
     return numberStrings.map(number => (parseInt(number, 10)));
+  }
+
+  _delimit(numberString) {
+    const findDelimiter = /^\/\/(.)[\n\r]/;
+    const delimiter = numberString.match(findDelimiter) || [];
+
+    return numberString
+      .replace(findDelimiter, "")
+      .replace(delimiter[1], this._DEFAULT_DELIMITER);
   }
 }
 

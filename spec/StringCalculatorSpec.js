@@ -1,12 +1,13 @@
 const StringCalculator = require("../src/StringCalculator");
 
 describe("String Calculato", () => {
-  describe("Adding numbers", () => {
-    let stringCalculator;
+  let stringCalculator;
 
-    beforeEach( () => {
-      stringCalculator = new StringCalculator();
-    }); 
+  beforeEach( () => {
+    stringCalculator = new StringCalculator();
+  }); 
+
+  describe("Adding numbers", () => {
 
     it("empty string adds up to 0", () => {
       const expectedResponse = 0;
@@ -42,5 +43,14 @@ describe("String Calculato", () => {
       const expectedResponse = 3;
       expect(stringCalculator.add("1\n1,1")).toEqual(expectedResponse);
     });
+  });
+
+  describe("setting a custom delimiter", () => {
+    it("can use semi colon to separate numbers", () => {
+      const expectedResponse = 3;
+      const delimitedString = "//;\n1;1,1";
+      expect(stringCalculator.add(delimitedString)).toEqual(expectedResponse);
+    });
+
   });
 });
