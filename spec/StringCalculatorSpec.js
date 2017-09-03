@@ -37,5 +37,10 @@ describe("String Calculato", () => {
       const expectedResponse = 3;
       expect(stringCalculator.add("1,1,1")).toEqual(expectedResponse);
     });
+
+    it("'1\n1,1' returns 3", () => {
+      const expectedResponse = 3;
+      expect(stringCalculator.add("1\n1,1")).toEqual(expectedResponse);
+    });
   });
 });
