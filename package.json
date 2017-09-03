@@ -1,0 +1,14 @@
+{
+  "name": "string-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "dbugsy <dpbergquist@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "jasmine": "^2.8.0"
+  }
+}
